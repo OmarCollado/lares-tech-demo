@@ -11,8 +11,9 @@ import '@fontsource/instrument-serif/400-italic.css';
 import './styles/tokens.css';
 import './styles/main.css';
 
-import { reducedMotion } from './core/env';
+import { motionForced, reducedMotion } from './core/env';
 import { pointer } from './core/pointer';
+import { initMotionToggle } from './fx/motion-toggle';
 import { Nebula } from './gl/nebula';
 import { initReveals } from './fx/reveal';
 import { splitHeroTitle } from './fx/split-text';
@@ -25,6 +26,9 @@ import { initChrome } from './fx/chrome';
 import { initHud } from './hud/hud';
 
 document.documentElement.classList.add('has-js');
+// Con movimiento forzado por el usuario, esta clase desactiva el bloque
+// CSS de prefers-reduced-motion (que de otro modo gana con !important).
+if (motionForced) document.documentElement.classList.add('force-motion');
 
 const boot = (): void => {
   if (!reducedMotion) pointer.init();
@@ -47,6 +51,7 @@ const boot = (): void => {
   initCounters();
   initMagnetic();
   initVFloat();
+  initMotionToggle();
   initHud(() => nebula?.rendererInfo ?? 'render CSS (sin WebGL2)');
 };
 

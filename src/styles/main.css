@@ -794,17 +794,38 @@ html:not(.has-js) .hero__title .w { opacity: 1; transform: none; }
   margin-top: 10px;
 }
 
-/* ═══ Movimiento reducido ════════════════════════════════════════════ */
+/* ═══ Toggle de movimiento (solo visible con reduced motion) ═════════ */
+.motion-toggle {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 910;
+  appearance: none;
+  cursor: pointer;
+  background: oklch(0.12 0.015 278 / 0.92);
+  color: var(--dark-text);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--r-pill);
+  padding: 11px 20px;
+  font: 600 0.8rem var(--sans);
+}
+.motion-toggle:hover { border-color: var(--blue-bright); }
+
+/* ═══ Movimiento reducido ════════════════════════════════════════════
+ * Se respeta la preferencia del sistema salvo que el usuario fuerce el
+ * movimiento desde el toggle (clase .force-motion en <html>). */
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
+  html:not(.force-motion) { scroll-behavior: auto; }
+  html:not(.force-motion) *,
+  html:not(.force-motion) *::before,
+  html:not(.force-motion) *::after {
     animation: none !important;
     transition: none !important;
   }
-  [data-reveal] { opacity: 1 !important; translate: none !important; }
-  .hero__title .w { opacity: 1 !important; transform: none !important; }
-  .manifesto__text .w { opacity: 1 !important; }
-  .hito { opacity: 1; }
-  .vfloat { display: none; }
-  .caso__media img { scale: 1; }
+  html:not(.force-motion) [data-reveal] { opacity: 1 !important; translate: none !important; }
+  html:not(.force-motion) .hero__title .w { opacity: 1 !important; transform: none !important; }
+  html:not(.force-motion) .manifesto__text .w { opacity: 1 !important; }
+  html:not(.force-motion) .hito { opacity: 1; }
+  html:not(.force-motion) .vfloat { display: none; }
+  html:not(.force-motion) .caso__media img { scale: 1; }
 }
