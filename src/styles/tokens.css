@@ -1,0 +1,50 @@
+/* Lares · tokens de la demo técnica
+ * Los azules de marca se mantienen en hex exacto (identidad del logomark).
+ * Los neutros nuevos se definen en OKLCH, tintados hacia el azul de marca:
+ * nunca #000 ni #fff puros.
+ */
+:root {
+  /* ── Marca · azules del logomark (hex canónico, no tocar) ─────────── */
+  --blue:        #1B6BFF;
+  --blue-dark:   #0F4FCF;
+  --blue-bright: #3D8AFF;
+
+  /* ── Superficie oscura · drench de la demo ─────────────────────────── */
+  --dark:        #0a0a14;
+  --dark-2:      #101019;
+  --dark-3:      #1c1c2a;
+  --dark-text:   oklch(0.97 0.006 275);
+  --dark-muted:  oklch(0.72 0.018 268);
+  --dark-faint:  oklch(0.52 0.02 268);
+  --dark-border: oklch(0.97 0.006 275 / 0.11);
+  --code-bg:     oklch(0.14 0.014 278);
+
+  /* ── Banda clara · sección de datos ─────────────────────────────────── */
+  --paper:       oklch(0.975 0.004 268);
+  --ink:         #0a0a14;
+  --ink-muted:   oklch(0.46 0.022 268);
+  --line-light:  oklch(0.88 0.01 268);
+
+  /* ── Tipografía ─────────────────────────────────────────────────────── */
+  --sans:  "Inter", system-ui, sans-serif;
+  --serif: "Instrument Serif", Georgia, serif;
+  --mono:  ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+
+  --fs-body:   clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --fs-kicker: 0.75rem;
+  --fs-title:  clamp(2.2rem, 1.4rem + 3.4vw, 3.9rem);
+  --fs-hero:   clamp(2.85rem, 1.5rem + 6.6vw, 6.6rem);
+
+  --track-caps: 0.08em;
+
+  /* ── Espaciado fluido ───────────────────────────────────────────────── */
+  --sp-section: clamp(6.5rem, 4rem + 12vh, 12rem);
+
+  /* ── Radii ──────────────────────────────────────────────────────────── */
+  --r-md:   14px;
+  --r-lg:   24px;
+  --r-pill: 999px;
+
+  /* ── Motion · easing único del sistema (handoff Lares) ──────────────── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}

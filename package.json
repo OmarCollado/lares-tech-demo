@@ -1,0 +1,24 @@
+{
+  "name": "lares-tech-demo",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Demo técnica de la web de Lares Gestión y Consultoría: WebGL2, físicas de muelle y coreografía de scroll sin librerías en runtime.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource/instrument-serif": "^5.2.8",
+    "@fontsource/inter": "^5.2.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "vite": "^7.0.0"
+  }
+}
